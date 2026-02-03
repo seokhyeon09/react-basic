@@ -1,20 +1,21 @@
 import { useState } from 'react'
 import './App.css'
-import Main from './components/Main'
-import Article from './components/Article'
-import Section from './components/Section'
 import Header from './components/Header'
+import Aside from './components/Aside'
+import Main from './components/Main'
+import Footer from './components/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <Header/>
-      <Section/>
-      <Article/>
-      <h1>hello react</h1>
-      <Main/>
+    <div className='container'>
+      <Header />
+      <div className='inner'>
+        <Aside />
+        <Main />
+      </div>
+      <Footer />
     </div>
   )
 }
