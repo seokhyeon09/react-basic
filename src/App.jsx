@@ -1,45 +1,41 @@
 import './App.css'
-import Button from './Commponent/Button'
-import Main from './Commponent/main'
-import Section from './Commponent/Section'
-import Input from './Commponent/Input'
+import MenuButton from './Commponent/MenuButton';
+import InputCard from './Commponent/InputCard';
+import PostItem from './Commponent/PostItem';
 function App() {
-  const sectionData={
-    content : '섹션이 전달되는 데이터',
-    bgColor:'skyblue'
-  }
+  const menus = [
+    { id: 1, label: "메일", color: "red" },
+    { id: 2, label: "카페", color: "blue" },
+    { id: 3, label: "블로그", color: "green" },
+  ];
+  const inputInfo = {
+    title: "검색",
+    placeholder: "검색어를 입력하세요",
+  };
 
-  const handleChange=(value)=>{
-    console.log("입력중:",value)
-  }
-
+  const posts = [
+    { id: 1, title: "React 시작하기", author: "홍길동" },
+    { id: 2, title: "JS 문법 정리", author: "김철수" },
+    { id: 3, title: "CSS 레이아웃", author: "이영희" },
+  ];
   return (
     <div>
-      <Input 
-      inputValue={'hello react'}
-      title={'input title'}
-      placeholder={'입력하세요'}
-      onChange={handleChange}
+      <h1>메뉴</h1>
+      {menus.map((menu) => (
+        // 스프레드속성으로 값을 다 보냄
+        <MenuButton key={menu.id} {...menu} />
+      ))}
+      <hr />
+
+      <InputCard
+        {...inputInfo}
       />
-      {/* data라는 이름으로 sectionData객체의 값을 보냄 */}
-      {/* <Section data={sectionData}/> */}
-      <Section {...sectionData}/>
-      <hr />
-      <Main content='메인 영역입니다.' bgColor='pink'/>
-      <Main bgColor='pink'/>
-      <Main content='메인 영역2입니다.' bgColor='pink'/>
-      <hr />
-      <Button text={'메일'} color={'red'}/>
-      <Button text={'카페'} color={'blue'}>
-        <span>자식요소 blue</span>
-      </Button>
-      <Button text={'블로그'} color={'green'}>
-        <span>자식요소 green</span>
-      </Button>
-      <Button text={'블로그'}/>
-      <h1>hello react</h1>
+      {posts.map((post) => (
+        <PostItem key={post.id} {...post} />
+
+      ))}
     </div>
-  )
+  );
 }
 
 export default App
