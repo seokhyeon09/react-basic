@@ -1,12 +1,13 @@
 import './App.css'
-import Count from './Commponent/Count';
-import TodoList from './Commponent/TodoList';
+import MyComponent from './Commponent/MyComponent';
+import Button from './Commponent/Button.jsx'
+import Display from './Commponent/Display'
 
 function App() {
   return (
     <div>
-      <Count/>
-      <TodoList/>
+      <Display/>
+      <Button/>
     </div>
   );
 }
